@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAWAKUM Ride — রাইড বুকিং</title>
+<style>
+:root{--ink:#14231d;--green:#13a66b;--lime:#d9ff70;--muted:#69756f;--paper:#f5f7f5;--line:#e2e8e4}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;background:var(--paper);color:var(--ink)}
+header{background:#10231b;color:white;padding:18px 20px 22px;border-radius:0 0 24px 24px}
+.top{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:auto}.logo{font-size:23px;font-weight:850;letter-spacing:1px}.logo span{color:var(--lime)}.pill{border:1px solid #ffffff55;padding:7px 12px;border-radius:999px;font-size:13px}
+.hero{max-width:1000px;margin:24px auto 0}.hero h1{font-size:clamp(27px,5vw,42px);line-height:1.15;margin:0 0 8px}.hero p{color:#c5d2cb;margin:0}
+main{max-width:1000px;margin:20px auto;padding:0 14px 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 24px #1d39220a}.panel h2{font-size:20px;margin:0 0 16px}
+.field{margin:13px 0}.field label{display:block;font-size:13px;font-weight:700;color:#4b5b52;margin-bottom:7px}.field input{width:100%;border:1px solid #d8e1db;border-radius:12px;padding:13px 14px;font:inherit;outline:none}.field input:focus{border-color:var(--green);box-shadow:0 0 0 3px #13a66b18}
+.route{display:flex;gap:12px}.route-mark{width:24px;display:flex;align-items:center;flex-direction:column;padding-top:41px}.dot{width:10px;height:10px;border:3px solid var(--green);border-radius:50%}.route-line{height:48px;border-left:2px dashed #aab8af;margin:5px 0}.square{width:10px;height:10px;background:var(--ink)}
+.vehicles{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:15px 0}.vehicle{border:1px solid var(--line);background:white;border-radius:14px;padding:12px 8px;text-align:center;cursor:pointer}.vehicle.active{border:2px solid var(--green);background:#f0fff7;padding:11px 7px}.car{font-size:26px}.vehicle b{display:block;font-size:14px}.vehicle small{display:block;color:var(--muted);margin-top:3px}
+.price{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);font-size:14px}.price strong{font-size:22px}
+button{border:0;border-radius:13px;background:var(--green);color:white;font:inherit;font-weight:800;padding:15px;width:100%;cursor:pointer}.btn-secondary{background:#edf3ef;color:var(--ink);margin-top:9px}
+.map{min-height:280px;position:relative;overflow:hidden;background:#e8efe8;border-radius:16px;background-image:linear-gradient(32deg,transparent 46%,#fff 47%,#fff 51%,transparent 52%),linear-gradient(110deg,transparent 39%,#fff 40%,#fff 44%,transparent 45%),linear-gradient(5deg,transparent 62%,#d2e2d4 63%,#d2e2d4 68%,transparent 69%),linear-gradient(150deg,transparent 25%,#d2e2d4 26%,#d2e2d4 31%,transparent 32%)}
+.map:before{content:"";position:absolute;width:140%;height:16px;background:#c4dfec;transform:rotate(-23deg);left:-20%;top:47%}.map-label{position:absolute;background:white;padding:9px 12px;border-radius:10px;box-shadow:0 3px 12px #18332215;font-size:13px;font-weight:700}.map-label.a{top:22%;left:10%}.map-label.b{bottom:20%;right:8%}.pin{position:absolute;top:42%;left:53%;background:var(--green);color:white;border:4px solid white;border-radius:50% 50% 50% 0;width:34px;height:34px;transform:rotate(-45deg);box-shadow:0 3px 12px #173c2b33}.pin:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:white;top:9px;left:9px}
+.note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:13px}.status{display:none;background:#edfff5;border:1px solid #bcebd2;border-radius:14px;padding:14px;margin-top:13px}.status.show{display:block}.status b{display:block;margin-bottom:4px}.status p{margin:0;font-size:13px;color:#476456}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:0 15px 24px}
+@media(max-width:700px){main{grid-template-columns:1fr}.hero{margin-top:20px}.map{min-height:230px}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="logo">HAWA<span>KUM</span> <small style="font-size:12px;font-weight:500;color:#c5d2cb">RIDE</small></div><div class="pill">🇶🇦 Qatar</div></div><div class="hero"><h1>আপনার যাত্রা,<br>আপনার নিয়ন্ত্রণে।</h1><p>সহজে রাইড বুক করুন — নিরাপদে গন্তব্যে পৌঁছান।</p></div></header>
+<main>
+<section class="panel">
+<h2>কোথায় যাবেন?</h2>
+<div class="route"><div class="route-mark"><div class="dot"></div><div class="route-line"></div><div class="square"></div></div><div style="flex:1;min-width:0">
+<div class="field"><label for="pickup">পিকআপ লোকেশন</label><input id="pickup" value="West Bay, Doha" placeholder="আপনাকে কোথা থেকে নেবে?"></div>
+<div class="field"><label for="destination">গন্তব্য</label><input id="destination" placeholder="কোথায় যাবেন?"></div>
+</div></div>
+<h2 style="margin-top:20px">আপনার রাইড বেছে নিন</h2>
+<div class="vehicles">
+<button type="button" class="vehicle active" data-type="Economy" data-price="12"><span class="car">🚗</span><b>ইকোনমি</b><small>QAR 12 থেকে</small></button>
+<button type="button" class="vehicle" data-type="Comfort" data-price="18"><span class="car">🚙</span><b>কমফোর্ট</b><small>QAR 18 থেকে</small></button>
+<button type="button" class="vehicle" data-type="XL" data-price="25"><span class="car">🚐</span><b>XL</b><small>QAR 25 থেকে</small></button>
+</div>
+<div class="price"><span>আনুমানিক ভাড়া</span><strong id="fare">QAR 12+</strong></div>
+<button id="book">রাইড বুক করুন</button>
+<div id="status" class="status" role="status"><b id="statusTitle">রাইডের অনুরোধ তৈরি হয়েছে</b><p id="statusText">এটি ডেমো। বাস্তব ড্রাইভার এখনো সংযুক্ত নয়।</p></div>
+<p class="note">ভাড়া ও বুকিং এই ডেমোতে উদাহরণ হিসেবে দেখানো হয়েছে। বাস্তব ব্যবহারের জন্য সার্ভার, লাইভ ম্যাপ, ড্রাইভার অ্যাপ, লগইন এবং পেমেন্ট সংযুক্ত করতে হবে।</p>
+</section>
+<section class="panel"><h2>আপনার যাত্রার প্রিভিউ</h2><div class="map" aria-label="ডেমো মানচিত্র"><div class="map-label a">📍 পিকআপ</div><div class="pin"></div><div class="map-label b">🏁 গন্তব্য</div></div><div style="display:flex;justify-content:space-between;gap:12px;margin-top:16px"><div><div style="font-size:12px;color:var(--muted)">আনুমানিক সময়</div><b>৮–১৫ মিনিট</b></div><div><div style="font-size:12px;color:var(--muted)">পেমেন্ট</div><b>ক্যাশ</b></div><div><div style="font-size:12px;color:var(--muted)">সার্ভিস</div><b>দোহা</b></div></div><p class="note">এটি একটি নকশাগত ম্যাপ প্রিভিউ; এটি লাইভ GPS বা নেভিগেশন নয়।</p></section>
+</main><footer>HAWAKUM RIDE • প্রোটোটাইপ • Qatar</footer>
+<script>
+const vehicles=[...document.querySelectorAll('.vehicle')];let selected=vehicles[0];
+vehicles.forEach(v=>v.addEventListener('click',()=>{vehicles.forEach(x=>x.classList.remove('active'));v.classList.add('active');selected=v;document.getElementById('fare').textContent='QAR '+v.dataset.price+'+';}));
+document.getElementById('book').addEventListener('click',()=>{
+ const pickup=document.getElementById('pickup').value.trim(),dest=document.getElementById('destination').value.trim(),status=document.getElementById('status');
+ if(!pickup||!dest){alert('পিকআপ ও গন্তব্য—দুটিই লিখুন।');return;}
+ document.getElementById('statusTitle').textContent='রাইডের অনুরোধ প্রস্তুত!';
+ document.getElementById('statusText').textContent=`${pickup} থেকে ${dest} • ${selected.dataset.type} • আনুমানিক QAR ${selected.dataset.price}+. এটি ডেমো বুকিং—কোনো ড্রাইভারকে পাঠানো হয়নি।`;
+ status.classList.add('show');status.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+</script>
+</body></html>
